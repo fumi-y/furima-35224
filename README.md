@@ -1,24 +1,88 @@
-# README
+# テーブル設計
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
+## users テーブル
 
-* Ruby version
+| Column             | Type   | Options                   |
+| ------------------ | ------ | ------------------------- |
+| email              | string | null: false, unique: true |
+| encrypted_password | string | null: false               |
+| nickname           | string | null: false               |
+| last_name          | string | null: false               |
+| first_name         | string | null: false               |
+| last_name_kana     | string | null: false               |
+| first_name_kana    | string | null: false               |
+| birthday           | date   | null: false               |
 
-* System dependencies
+# Association
+<!-- - has_many :comments -->
+- has_many :items, dependent: :destroy
+- has_many :buying_history, dependent: :destroy
 
-* Configuration
 
-* Database creation
 
-* Database initialization
+## items テーブル
 
-* How to run the test suite
+| Column          | Type       | Options            |
+| --------------- | ---------- | ------------------ |
+| name            | string     | null: false        |
+| description     | text       | null: false        |
+| condition_id    | integer    | null: false        |
+| postage_id      | integer    | null: false        |
+| area_id         | integer    | null: false        |
+| delivery_day_id | integer    | null: false        |
+| category_id     | integer    | null: false        |
+| price           | integer    | null: false        |
+| user            | references | foreign_key: true  |
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
+# Association
+<!-- - has_many :comments -->
+- belongs_to :user
+- has_one :buying_history, dependent: :destroy
 
-* ...
+
+
+<!-- ## comments テーブル
+
+| Column  | Type       | Options     |
+| ------- | ---------- | ----------- |
+| text    | text       | null: false |
+| user_id | references |             |
+| item_id | references |             |
+
+
+# Association
+- belongs_to :user
+- belongs_to :item -->
+
+
+
+## buys テーブル
+
+| Column           | Type       | Options           |
+| ---------------- | ---------- | ----------------- |
+| postal_code      | string     | null: false       |
+| prefecture_id    | integer    | null: false       |
+| municipality     | string     | null: false       |
+| street_number    | string     | null: false       |
+| building_name    | string     |                   |
+| telephone_number | string     | null: false       |
+| buying_history   | references | foreign_key: true |
+
+# Association
+- belongs_to :buying_history, dependent: :destroy
+
+
+
+## buying_historys テーブル
+
+| Column | Type       | Options           |
+| ------ | ---------- | ----------------- |
+| user   | references | foreign_key: true |
+| item   | references | foreign_key: true |
+
+# Association
+- has_one :buy
+- belongs_to :item
+- belongs_to :user
