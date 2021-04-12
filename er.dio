@@ -1,6 +1,6 @@
 <mxfile>
     <diagram id="It_ow-GQ5i8kkrLPMi8p" name="ページ1">
-        <mxGraphModel dx="1988" dy="568" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+        <mxGraphModel dx="1499" dy="473" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -13,8 +13,8 @@
                 <mxCell id="57" value="&lt;font style=&quot;font-size: 17px&quot;&gt;&lt;b&gt;itemsテーブル&lt;br&gt;&lt;/b&gt;&lt;/font&gt;name( string型 null: false)&lt;br&gt;description( text型 null: false)&lt;br&gt;condition_id( integer型 null: false)&lt;br&gt;category_id( integer型 null: false)&lt;br&gt;postage_id( integer型 null: false)&lt;br&gt;area_id( integer型 null: false)&lt;br&gt;delivery_day_id( integer型 null: false)&lt;br&gt;price( integer型 null:false)&lt;br&gt;user( references型 foreign_key: true)" style="shape=note;size=20;whiteSpace=wrap;html=1;strokeWidth=2;" parent="1" vertex="1">
                     <mxGeometry x="420" y="180" width="230" height="170" as="geometry"/>
                 </mxCell>
-                <mxCell id="58" value="&lt;font style=&quot;font-size: 17px&quot;&gt;&lt;b&gt;buysテーブル&lt;/b&gt;&lt;/font&gt;&lt;br&gt;postal_code(integer型 null: false)&lt;br&gt;prefecture_id(integer型 null: false)&lt;br&gt;municipality(string型 null: false)&lt;br&gt;street_number(string型 null: false)&lt;br&gt;building_name(string型)&lt;br&gt;telephone_number(integer型 null: false)&lt;br&gt;user_id(references型)&lt;br&gt;item_id(references型)" style="shape=note;size=20;whiteSpace=wrap;html=1;strokeWidth=2;" parent="1" vertex="1">
-                    <mxGeometry x="150" y="390" width="250" height="160" as="geometry"/>
+                <mxCell id="58" value="&lt;font style=&quot;font-size: 17px&quot;&gt;&lt;b&gt;buysテーブル&lt;/b&gt;&lt;/font&gt;&lt;br&gt;postal_code(integer型 null: false)&lt;br&gt;prefecture_id(integer型 null: false)&lt;br&gt;municipality(string型 null: false)&lt;br&gt;street_number(string型 null: false)&lt;br&gt;building_name(string型)&lt;br&gt;telephone_number(string型 null: false)&lt;br&gt;buying_history(references型, foreign_key: true)" style="shape=note;size=20;whiteSpace=wrap;html=1;strokeWidth=2;" parent="1" vertex="1">
+                    <mxGeometry x="150" y="360" width="270" height="160" as="geometry"/>
                 </mxCell>
                 <mxCell id="60" value="" style="edgeStyle=entityRelationEdgeStyle;fontSize=12;html=1;endArrow=ERoneToMany;exitX=0;exitY=0;exitDx=220;exitDy=90;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;strokeWidth=2;endSize=34;" parent="1" source="33" target="57" edge="1">
                     <mxGeometry width="100" height="100" relative="1" as="geometry">
@@ -24,30 +24,36 @@
                 </mxCell>
                 <mxCell id="61" value="" style="edgeStyle=entityRelationEdgeStyle;fontSize=12;html=1;endArrow=ERoneToMany;strokeWidth=2;entryX=0;entryY=0;entryDx=215;entryDy=55;entryPerimeter=0;endSize=31;" parent="1" target="56" edge="1">
                     <mxGeometry width="100" height="100" relative="1" as="geometry">
-                        <mxPoint x="535" y="179" as="sourcePoint"/>
+                        <mxPoint x="560" y="150" as="sourcePoint"/>
                         <mxPoint x="320" y="200" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="62" value="" style="edgeStyle=entityRelationEdgeStyle;fontSize=12;html=1;endArrow=ERoneToMany;strokeWidth=2;exitX=0.295;exitY=-0.012;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.012;entryY=0.333;entryDx=0;entryDy=0;entryPerimeter=0;endSize=27;" parent="1" source="33" target="56" edge="1">
+                <mxCell id="62" value="" style="edgeStyle=entityRelationEdgeStyle;fontSize=12;html=1;endArrow=ERoneToMany;strokeWidth=2;entryX=0.012;entryY=0.333;entryDx=0;entryDy=0;entryPerimeter=0;endSize=27;" parent="1" target="56" edge="1">
                     <mxGeometry width="100" height="100" relative="1" as="geometry">
-                        <mxPoint x="20" y="170" as="sourcePoint"/>
+                        <mxPoint x="7" y="120" as="sourcePoint"/>
                         <mxPoint x="120" y="70" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="63" value="" style="edgeStyle=entityRelationEdgeStyle;fontSize=12;html=1;endArrow=ERmandOne;startArrow=ERmandOne;strokeWidth=2;startSize=20;endSize=20;entryX=0.417;entryY=1.006;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" target="57" edge="1">
+                <mxCell id="65" value="&lt;font style=&quot;font-size: 17px&quot;&gt;&lt;b&gt;buying_historyテーブル&lt;/b&gt;&lt;/font&gt;&lt;br&gt;user(references型, foreign_key: true)&lt;br&gt;item(references型, foreign_key: true)" style="shape=note;size=20;whiteSpace=wrap;html=1;strokeWidth=2;" parent="1" vertex="1">
+                    <mxGeometry x="160" y="630" width="230" height="90" as="geometry"/>
+                </mxCell>
+                <mxCell id="66" value="" style="edgeStyle=entityRelationEdgeStyle;fontSize=12;html=1;endArrow=ERmandOne;startArrow=ERmandOne;entryX=0.5;entryY=1;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.378;exitY=-0.044;exitDx=0;exitDy=0;exitPerimeter=0;endSize=15;startSize=15;" parent="1" source="65" target="58" edge="1">
                     <mxGeometry width="100" height="100" relative="1" as="geometry">
-                        <mxPoint x="400" y="660" as="sourcePoint"/>
-                        <mxPoint x="560" y="380" as="targetPoint"/>
+                        <mxPoint x="232.5" y="580" as="sourcePoint"/>
+                        <mxPoint x="332.5" y="480" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="64" value="" style="edgeStyle=entityRelationEdgeStyle;fontSize=12;html=1;endArrow=ERmandOne;startArrow=ERmandOne;strokeWidth=2;endSize=19;startSize=20;exitX=0.101;exitY=1.013;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.007;entryY=0.433;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="33" target="65" edge="1">
+                <mxCell id="67" value="" style="edgeStyle=entityRelationEdgeStyle;fontSize=12;html=1;endArrow=ERoneToMany;entryX=-0.004;entryY=0.575;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.567;exitY=1.006;exitDx=0;exitDy=0;exitPerimeter=0;endSize=20;" parent="1" source="33" target="58" edge="1">
                     <mxGeometry width="100" height="100" relative="1" as="geometry">
-                        <mxPoint x="70" y="690" as="sourcePoint"/>
-                        <mxPoint x="150" y="650" as="targetPoint"/>
+                        <mxPoint x="90" y="470" as="sourcePoint"/>
+                        <mxPoint x="130" y="390" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="65" value="&lt;font style=&quot;font-size: 17px&quot;&gt;&lt;b&gt;buying_historyテーブル&lt;/b&gt;&lt;/font&gt;&lt;br&gt;user(references型, foreign_key: true)&lt;br&gt;item(references型, foreign_key: true)" style="shape=note;size=20;whiteSpace=wrap;html=1;strokeWidth=2;" vertex="1" parent="1">
-                    <mxGeometry x="167.5" y="580" width="230" height="150" as="geometry"/>
+                <mxCell id="70" value="" style="edgeStyle=entityRelationEdgeStyle;fontSize=12;html=1;endArrow=ERmandOne;startArrow=ERmandOne;exitX=1.007;exitY=0.617;exitDx=0;exitDy=0;exitPerimeter=0;endSize=16;startSize=16;" edge="1" parent="1" source="58">
+                    <mxGeometry width="100" height="100" relative="1" as="geometry">
+                        <mxPoint x="450" y="450" as="sourcePoint"/>
+                        <mxPoint x="550" y="350" as="targetPoint"/>
+                    </mxGeometry>
                 </mxCell>
             </root>
         </mxGraphModel>

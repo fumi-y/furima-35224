@@ -15,9 +15,9 @@
 | birthday           | date   | null: false               |
 
 # Association
-- has_many :comments
-- has_many :items
-- has_one :buy
+<!-- - has_many :comments -->
+- has_many :items, dependent: :destroy
+- has_many :buys, dependent: :destroy
 
 
 
@@ -37,13 +37,13 @@
 
 
 # Association
-- has_many :comments
+<!-- - has_many :comments -->
 - belongs_to :user
-- has_one :buy
+- has_one :buys, dependent: :destroy
 
 
 
-## comments テーブル
+<!-- ## comments テーブル
 
 | Column  | Type       | Options     |
 | ------- | ---------- | ----------- |
@@ -54,20 +54,26 @@
 
 # Association
 - belongs_to :user
-- belongs_to :item
+- belongs_to :item -->
 
 
 
 ## buys テーブル
 
-| Column           | Type       | Options     |
-| ---------------- | ---------- | ----------- |
-| postal_code      | string     | null: false |
-| prefecture_id    | integer    | null: false |
-| municipality     | string     | null: false |
-| street_number    | string     | null: false |
-| building_name    | string     |             |
-| telephone_number | string     | null: false |
+| Column           | Type       | Options           |
+| ---------------- | ---------- | ----------------- |
+| postal_code      | string     | null: false       |
+| prefecture_id    | integer    | null: false       |
+| municipality     | string     | null: false       |
+| street_number    | string     | null: false       |
+| building_name    | string     |                   |
+| telephone_number | string     | null: false       |
+| buying_history   | references | foreign_key: true |
+
+# Association
+- has_one :buying_history, dependent: :destroy
+- belongs_to :item
+- belongs_to :user
 
 
 
@@ -79,5 +85,4 @@
 | item   | references | foreign_key: true |
 
 # Association
-- belongs_to :user
-- belongs_to :item
+- belongs_to :buy
