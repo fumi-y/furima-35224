@@ -17,7 +17,7 @@
 # Association
 <!-- - has_many :comments -->
 - has_many :items, dependent: :destroy
-- has_many :buys, dependent: :destroy
+- has_many :buying_history, dependent: :destroy
 
 
 
@@ -39,7 +39,7 @@
 # Association
 <!-- - has_many :comments -->
 - belongs_to :user
-- has_one :buys, dependent: :destroy
+- has_one :buying_history, dependent: :destroy
 
 
 
@@ -71,9 +71,7 @@
 | buying_history   | references | foreign_key: true |
 
 # Association
-- has_one :buying_history, dependent: :destroy
-- belongs_to :item
-- belongs_to :user
+- belongs_to :buying_history, dependent: :destroy
 
 
 
@@ -85,4 +83,6 @@
 | item   | references | foreign_key: true |
 
 # Association
-- belongs_to :buy
+- has_one :buy
+- belongs_to :item
+- belongs_to :user
