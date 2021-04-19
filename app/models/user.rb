@@ -7,7 +7,7 @@ class User < ApplicationRecord
   with_options presence: true do
 
     validates :nickname
-
+    
     with_options format: { with: /\A[ぁ-んァ-ヶ一-龥々ー]+\z/, message: 'is invalid'} do
       validates :last_name
       validates :first_name
