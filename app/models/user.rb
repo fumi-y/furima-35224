@@ -7,7 +7,7 @@ class User < ApplicationRecord
   with_options presence: true do
 
     validates :nickname
-
+    
     with_options format: { with: /\A[ぁ-んァ-ヶ一-龥々ー]+\z/, message: 'is invalid'} do
       validates :last_name
       validates :first_name
@@ -22,4 +22,6 @@ class User < ApplicationRecord
   end
 
   validates :password,format: { with: /\A(?=.*?[a-z])(?=.*?\d)[a-z\d!-~]+\z/i }
+
+  has_many :items, dependent: :destroy
 end
