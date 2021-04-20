@@ -17,7 +17,7 @@
 # Association
 <!-- - has_many :comments -->
 - has_many :items, dependent: :destroy
-- has_many :buying_history, dependent: :destroy
+- has_many :orders, dependent: :destroy
 
 
 
@@ -39,7 +39,7 @@
 # Association
 <!-- - has_many :comments -->
 - belongs_to :user
-- has_one :buying_history, dependent: :destroy
+- has_one :order, dependent: :destroy
 
 
 
@@ -58,7 +58,7 @@
 
 
 
-## buys テーブル
+## address テーブル
 
 | Column           | Type       | Options           |
 | ---------------- | ---------- | ----------------- |
@@ -68,14 +68,14 @@
 | street_number    | string     | null: false       |
 | building_name    | string     |                   |
 | telephone_number | string     | null: false       |
-| buying_history   | references | foreign_key: true |
+| order            | references | foreign_key: true |
 
 # Association
-- belongs_to :buying_history, dependent: :destroy
+- belongs_to :order, dependent: :destroy
 
 
 
-## buying_historys テーブル
+## order テーブル
 
 | Column | Type       | Options           |
 | ------ | ---------- | ----------------- |
@@ -83,6 +83,6 @@
 | item   | references | foreign_key: true |
 
 # Association
-- has_one :buy
+- has_one :address
 - belongs_to :item
 - belongs_to :user
