@@ -1,8 +1,8 @@
 class OrdersController < ApplicationController
-  def index
-  end
+  before_action :authenticate_user!
+  before_action :set_item
 
-  def new
+  def index
     @order_address = OrderAddress.new
   end
 
@@ -12,12 +12,16 @@ class OrdersController < ApplicationController
       @order_address.save
       redirect_to root_path
     else
-      render :new
+      render :index
     end
   end
 
   private
+  def set_item
+    @item = Item.find(params[:item_id])
+  end
+
   def order_params
-    params.require(:order_address).permit(:postal_code, :prefecture_id, :municipality, :street_number, :building_name, :telephone_number).merge(user_id: current_user.id, item_id: @item.id)
+    params.require(:order_address).permit(:postal_code, :prefecture, :municipality, :street_number, :building_name, :telephone_number).merge(user_id: current_user.id, item_id: @item.id)
   end
 end
